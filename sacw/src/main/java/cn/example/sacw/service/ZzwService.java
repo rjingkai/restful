@@ -19,4 +19,10 @@ public interface ZzwService {
     public List<Map<Object,Object>> getAjlx();
 
     public List<Ssdt> getSsdt();
+
+    public List<Map<Object,Object>> getCfsj();
+
+    public List<Map<Object,Object>> getCqwrk();
+
+    public List<Map<Object,Object>> getCqwck();
 }

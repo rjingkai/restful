@@ -5,13 +5,17 @@ import cn.example.sacw.model.Ssdt;
 import cn.example.sacw.service.ZzwService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service
 public class ZzwServiceImpl implements ZzwService {
 
+
+    private static String ajlxgroupid = "402881fd6c21f87f016c2261b8ff0007";   //案件类型的groupID
+    private static String wplxgroupid = "402881186bd03f9d016bd0c3e48f00e3";   //物品二级分类的groupID
+    private static String ckfsgroupid = "402881186bd03f9d016bd0999a690035";   //出库方式的groupID
+    private static String czlxgroupid = "4028005e6c3cb74b016c3d04b37c0003";   //物品操作类型的groupID
 
     @Autowired
     private ZzwMapper zzwMapper;
@@ -30,24 +34,39 @@ public class ZzwServiceImpl implements ZzwService {
 
     @Override
     public List<Map<Object, Object>> getCkfs() {
-        return zzwMapper.getCkfs();
+        return zzwMapper.getCkfs(ckfsgroupid);
     }
 
     @Override
     public List<Map<Object, Object>> getAjlx() {
-        return zzwMapper.getAjlx();
+        return zzwMapper.getAjlx(ajlxgroupid);
     }
 
     @Override
     public List<Ssdt> getSsdt() {
-        return zzwMapper.getSsdt();
+        return zzwMapper.getSsdt(czlxgroupid);
+    }
+
+    @Override
+    public List<Map<Object, Object>> getCfsj() {
+        return zzwMapper.getCfsj();
+    }
+
+    @Override
+    public List<Map<Object, Object>> getCqwrk() {
+        return zzwMapper.getCqwrk(ajlxgroupid);
+    }
+
+    @Override
+    public List<Map<Object, Object>> getCqwck() {
+        return zzwMapper.getCqwck(ajlxgroupid);
     }
 
     @Override
     public Map<Object,Map<Object,Object>> getCrk(){
         LinkedHashMap<Object,Map<Object,Object>> map = new LinkedHashMap<>();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        for (int i = 9; i >=0; i--) {
+        for (int i = 9; i >= 0; i--) {
             Calendar calendar = Calendar.getInstance();
             calendar.add(calendar.DATE, -i);
             String kssj = format.format(calendar.getTime());
@@ -62,7 +81,7 @@ public class ZzwServiceImpl implements ZzwService {
 
     @Override
     public List<Map<Object,Object>> getWplx(){
-       return zzwMapper.getWplx();
+       return zzwMapper.getWplx(wplxgroupid);
     }
 
 

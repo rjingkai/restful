@@ -13,10 +13,14 @@ public class ResponseResult<T> {
      * 状态码
      */
     int code;
+
+
     /**
      * 状态码描述
      */
     String message;
+
+
     /**
      * 返回的数据
      */

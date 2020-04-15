@@ -6,7 +6,6 @@ import cn.example.sacw.service.ZzwService;
 import cn.example.sacw.util.ResponseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.omg.CosNaming.IstringHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -73,8 +72,28 @@ public class ZzwController {
     }
 
 
+    @RequestMapping("/getCfsj")
+    @ApiOperation(value = "返回物品存放时间数据")
+    public ResponseResult getCfsj(){
+        List<Map<Object,Object>> map = zzwService.getCfsj();
+        return ResponseResult.success(map);
+    }
 
 
+    @RequestMapping("/getCqwrk")
+    @ApiOperation(value = "返回超期未入库的数据")
+    public ResponseResult getCqwrk(){
+        List<Map<Object,Object>> data = zzwService.getCqwrk();
+        return ResponseResult.success(data);
+    }
+
+
+    @RequestMapping("/getCqwck")
+    @ApiOperation(value = "返回超期未出库的数据")
+    public ResponseResult getCqwck(){
+        List<Map<Object,Object>> data = zzwService.getCqwck();
+        return ResponseResult.success(data);
+    }
 
 
 
