@@ -7,12 +7,17 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * 异常拦截类，程序中抛出的所有的异常都会被拦截
+ * @author Administrator
  */
 @RestControllerAdvice
 public class GlobalExceptionHnadler {
 
 
-    //程序异常处理类，相当于不直接抛出错误信息，程序做处理
+    /**
+     * 捕捉全局异常的类
+     * @param e
+     * @return
+     */
     @ExceptionHandler(Exception.class)
     public ResponseResult handlerException(Exception e){
         ResponseResult result = ResponseResult.fail(500,e.getMessage());
@@ -20,7 +25,11 @@ public class GlobalExceptionHnadler {
     }
 
 
-    //自定义异常处理类
+    /**
+     * 处理自定义异常的类
+     * @param e
+     * @return
+     */
     @ExceptionHandler(BusinessException.class)
     public ResponseResult handlerBusinessException(BusinessException e){
         return ResponseResult.fail(500,e.getMessage());

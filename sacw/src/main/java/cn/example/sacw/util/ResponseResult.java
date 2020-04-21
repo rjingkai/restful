@@ -5,6 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 import springfox.documentation.service.ResponseMessage;
 
+/**
+ * 统一返回数据格式的实体类
+ * @author Administrator
+ */
 @Getter
 @Setter
 public class ResponseResult<T> {

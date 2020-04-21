@@ -8,14 +8,33 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+/**
+ * 物品service的实现类
+ * @author Administrator
+ */
 @Service
 public class ZzwServiceImpl implements ZzwService {
 
+    /**
+     * 案件类型的groupID
+     */
+    private static final String ajlxgroupid = "402881fd6c21f87f016c2261b8ff0007";
 
-    private static String ajlxgroupid = "402881fd6c21f87f016c2261b8ff0007";   //案件类型的groupID
-    private static String wplxgroupid = "402881186bd03f9d016bd0c3e48f00e3";   //物品二级分类的groupID
-    private static String ckfsgroupid = "402881186bd03f9d016bd0999a690035";   //出库方式的groupID
-    private static String czlxgroupid = "4028005e6c3cb74b016c3d04b37c0003";   //物品操作类型的groupID
+    /**
+     * 物品二级分类的groupID
+     */
+    private static String wplxgroupid = "402881186bd03f9d016bd0c3e48f00e3";
+
+    /**
+     * 出库方式的groupID
+     */
+    private static String ckfsgroupid = "402881186bd03f9d016bd0999a690035";
+
+    /**
+     * 物品操作类型的groupID
+     */
+    private static String czlxgroupid = "4028005e6c3cb74b016c3d04b37c0003";
+
 
     @Autowired
     private ZzwMapper zzwMapper;

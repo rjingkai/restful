@@ -5,6 +5,10 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * 物品实体类
+ * @author Administrator
+ */
 @Data
 public class ZzwInfo {
 

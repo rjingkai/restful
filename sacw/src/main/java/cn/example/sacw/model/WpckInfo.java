@@ -3,6 +3,10 @@ package cn.example.sacw.model;
 
 import lombok.Data;
 
+/**
+ * 物品出库实体类
+ * @author Administrator
+ */
 @Data
 public class WpckInfo {
 
